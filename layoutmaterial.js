@@ -11,7 +11,7 @@
   angular.module('manviny.layoutmaterial', [])
 
 
-    .controller('LayoutCtrl', function ($mdMedia, $scope) {
+    .controller('LayoutCtrl', function ($scope, $mdMedia, $mdSidenav) {
       var self = this;
 
       self.title = 'Simple Layout';
