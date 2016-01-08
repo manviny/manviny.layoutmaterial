@@ -31,35 +31,78 @@
     <!-- MAIN CONTENT -->
     <div id="main_content_wrap" class="outer">
       <section id="main_content" class="inner">
-        <h3>
-<a id="home" class="anchor" href="#home" aria-hidden="true"><span class="octicon octicon-link"></span></a><a href="http://manviny.github.io/">home</a>
-</h3>
-
-<h1>
-<a id="install-layoutmaterial" class="anchor" href="#install-layoutmaterial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install layoutmaterial</h1>
+        <h1>
+<a id="install-layoutmaterial--roboto-fonts-ngmaterial-" class="anchor" href="#install-layoutmaterial--roboto-fonts-ngmaterial-" aria-hidden="true"><span class="octicon octicon-link"></span></a>Install layoutmaterial ( Roboto fonts, ngMaterial )</h1>
 
 <ol>
 <li>
 <strong>bower install</strong> manviny/manviny.layoutmaterial --save<br>
 </li>
-<li>check that all js and css libraries are loaded<br>
-</li>
 <li>
-<strong>inject</strong> 'manviny/manviny.dreamfactory' into your app module<br>
-</li>
-<li>
-<strong>add</strong> 'LoginCtrl','RegisterController' to your controller<br>
-</li>
-<li>start using it<br>
-</li>
-</ol>
+<p>check that all js and css libraries are loaded and modules injected</p>
 
-<h1>
-<a id="needed" class="anchor" href="#needed" aria-hidden="true"><span class="octicon octicon-link"></span></a>Needed</h1>
+<h3>
+<a id="appjs" class="anchor" href="#appjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>app.js</h3>
 
-<div class="highlight highlight-source-js"><pre># <span class="pl-smi">app</span>.<span class="pl-smi">js</span>
+<div class="highlight highlight-source-js"><pre>
+# app
 <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>your-app<span class="pl-pds">'</span></span>, [..., <span class="pl-s"><span class="pl-pds">'</span>ngMaterial<span class="pl-pds">'</span></span>,<span class="pl-s"><span class="pl-pds">'</span>manviny.layoutmaterial<span class="pl-pds">'</span></span>, ...])
-</pre></div>
+
+# controller
+<span class="pl-smi">angular</span>.<span class="pl-en">controller</span>(<span class="pl-s"><span class="pl-pds">'</span>myCtrl<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">$scope</span>, <span class="pl-smi">Login</span>) {
+  <span class="pl-c1">$scope</span>.<span class="pl-en">login</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
+      <span class="pl-smi">Login</span>.<span class="pl-en">login</span>({email<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>usermail<span class="pl-pds">'</span></span>,password<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>****<span class="pl-pds">'</span></span>})
+      .<span class="pl-en">then</span>(<span class="pl-k">function</span>(<span class="pl-smi">response</span>){<span class="pl-c1">alert</span>(<span class="pl-smi">JSON</span>.<span class="pl-en">stringify</span>(response))})</pre></div>
+
+<h3>
+<a id="indexhtml" class="anchor" href="#indexhtml" aria-hidden="true"><span class="octicon octicon-link"></span></a>index.html</h3>
+
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">meta</span> <span class="pl-e">name</span>=<span class="pl-s"><span class="pl-pds">"</span>viewport<span class="pl-pds">"</span></span> <span class="pl-e">content</span>=<span class="pl-s"><span class="pl-pds">"</span>initial-scale=1, maximum-scale=1, user-scalable=no<span class="pl-pds">"</span></span>&gt;
+
+&lt;<span class="pl-ent">link</span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">"</span>stylesheet<span class="pl-pds">"</span></span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/manviny.layoutmaterial/layoutmaterial.css<span class="pl-pds">"</span></span> /&gt;
+&lt;<span class="pl-ent">link</span> <span class="pl-e">href</span>=<span class="pl-s"><span class="pl-pds">'</span>https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic<span class="pl-pds">'</span></span> <span class="pl-e">rel</span>=<span class="pl-s"><span class="pl-pds">'</span>stylesheet<span class="pl-pds">'</span></span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">'</span>text/css<span class="pl-pds">'</span></span>&gt;
+
+<span class="pl-s1">&lt;<span class="pl-ent">style</span>&gt;</span>
+<span class="pl-s1"><span class="pl-c">/* if you want to include roboto manually */</span></span>
+<span class="pl-s1">  <span class="pl-k">@font-face</span> {</span>
+<span class="pl-s1">    <span class="pl-c1"><span class="pl-c1">font-family</span></span>: <span class="pl-s"><span class="pl-pds">'</span>MyFontFamily<span class="pl-pds">'</span></span>;</span>
+<span class="pl-s1">    <span class="pl-c1"><span class="pl-c1">src</span></span>: <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../robotomono-googlefont/RobotoMono-Medium.ttf<span class="pl-pds">'</span></span>)  <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>truetype<span class="pl-pds">'</span></span>),</span>
+<span class="pl-s1">    src: <span class="pl-c1">url</span>(<span class="pl-s"><span class="pl-pds">'</span>../robotomono-googlefont/RobotoMono-Regular.ttf<span class="pl-pds">'</span></span>)  <span class="pl-c1">format</span>(<span class="pl-s"><span class="pl-pds">'</span>truetype<span class="pl-pds">'</span></span>);</span>
+<span class="pl-s1">  }   </span>
+<span class="pl-s1">&lt;/<span class="pl-ent">style</span>&gt;</span>
+
+...
+
+# el controlador debe llamarse LayoutCtrl, lc.screenSize cambia padding para diferentes tamaños
+&lt;<span class="pl-ent">body</span> <span class="pl-e">ng-app</span>=<span class="pl-s"><span class="pl-pds">"</span>miappApp<span class="pl-pds">"</span></span> <span class="pl-e">layout</span>=<span class="pl-s"><span class="pl-pds">"</span>column<span class="pl-pds">"</span></span> <span class="pl-e">ng-controller</span>=<span class="pl-s"><span class="pl-pds">"</span>LayoutCtrl as lc<span class="pl-pds">"</span></span>&gt;
+  <span class="pl-c">&lt;!--[if lte IE 8]&gt;</span>
+<span class="pl-c">    &lt;p class="browsehappy"&gt;You are using an &lt;strong&gt;outdated&lt;/strong&gt; browser. Please &lt;a href="http://browsehappy.com/"&gt;upgrade your browser&lt;/a&gt; to improve your experience.&lt;/p&gt;</span>
+<span class="pl-c">  &lt;![endif]--&gt;</span>
+
+  <span class="pl-c">&lt;!-- Add your site or application content here --&gt;</span>
+
+  &lt;<span class="pl-ent">md</span><span class="pl-e">-toolbar</span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;Mi app&lt;/<span class="pl-ent">h1</span>&gt;
+  &lt;/<span class="pl-ent">md</span><span class="pl-e">-toolbar</span>&gt;
+
+  &lt;<span class="pl-ent">md</span><span class="pl-e">-content</span> <span class="pl-e">flex</span> <span class="pl-e">id</span>=<span class="pl-s"><span class="pl-pds">"</span>content<span class="pl-pds">"</span></span> <span class="pl-e">ng-class</span>=<span class="pl-s"><span class="pl-pds">"</span>lc.screenSize<span class="pl-pds">"</span></span>&gt;
+    &lt;<span class="pl-ent">div</span> <span class="pl-e">ng-view</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">div</span>&gt;
+  &lt;/<span class="pl-ent">md</span><span class="pl-e">-content</span>&gt;
+
+  &lt;<span class="pl-ent">md</span><span class="pl-e">-toolbar</span>&gt;
+    &lt;<span class="pl-ent">h1</span>&gt;Footer&lt;/<span class="pl-ent">h1</span>&gt;
+  &lt;/<span class="pl-ent">md</span><span class="pl-e">-toolbar</span>&gt;
+
+  ...
+
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/angular/angular.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/angular-animate/angular-animate.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/angular-aria/angular-aria.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/angular-material/angular-material.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;
+&lt;<span class="pl-ent">script</span> <span class="pl-e">src</span>=<span class="pl-s"><span class="pl-pds">"</span>bower_components/manviny.layoutmaterial/layoutmaterial.js<span class="pl-pds">"</span></span>&gt;&lt;/<span class="pl-ent">script</span>&gt;</pre></div>
+</li>
+<li><p>start using it  </p></li>
+</ol>
       </section>
     </div>
 
