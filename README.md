@@ -1,4 +1,4 @@
-# Install layoutmaterial 
+# Install layoutmaterial ( roboto font, ngMaterial )
 
 1. **bower install** manviny/manviny.layoutmaterial --save  
 2. check that all js and css libraries are loaded and modules injected
@@ -9,6 +9,8 @@
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
   <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/manviny.layoutmaterial/layoutmaterial.js"></script>
   ```
   ###app.js
   ```js
