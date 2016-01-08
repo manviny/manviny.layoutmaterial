@@ -2,6 +2,20 @@
 
 1. **bower install** manviny/manviny.layoutmaterial --save  
 2. check that all js and css libraries are loaded and modules injected
+
+  ###app.js
+  ```js
+  
+  # app
+  angular.module('your-app', [..., 'ngMaterial','manviny.layoutmaterial', ...])
+  
+  # controller
+  angular.controller('myCtrl', function ($scope, Login) {
+    $scope.login = function(){
+        Login.login({email:'usermail',password:'****'})
+        .then(function(response){alert(JSON.stringify(response))})
+  ```
+  
   ###index.html
   ```html
   <meta name="viewport" content="initial-scale=1, maximun-scale=1, user-scalable=no">
@@ -25,18 +39,7 @@
   <script src="bower_components/angular-material/angular-material.js"></script>
   <script src="bower_components/manviny.layoutmaterial/layoutmaterial.js"></script>
   ```
-  ###app.js
-  ```js
-  
-  # app
-  angular.module('your-app', [..., 'ngMaterial','manviny.layoutmaterial', ...])
-  
-  # controller
-  angular.controller('myCtrl', function ($scope, Login) {
-    $scope.login = function(){
-        Login.login({email:'usermail',password:'****'})
-        .then(function(response){alert(JSON.stringify(response))})
-  ```
+
 
 3. start using it  
 

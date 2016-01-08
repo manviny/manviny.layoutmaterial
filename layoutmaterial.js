@@ -10,18 +10,34 @@
 
 	angular.module('manviny.layoutmaterial', [])
 
-    .controller('LayoutCtrl', ['$mdMedia', '$scope', LayoutController]);
+    // .controller('LayoutCtrl', ['$mdMedia', '$scope', LayoutController]);
 
-    function LayoutController($mdMedia, $scope) {
-    	var self = this;
+    // function LayoutController($mdMedia, $scope) {
+    // 	var self = this;
 
-    	self.title = 'Simple Layout';
-    	self.sectionTitle = 'Section #1';
-    	self.sectionBody = 'This is a simple section.';
+    // 	self.title = 'Simple Layout';
+    // 	self.sectionTitle = 'Section #1';
+    // 	self.sectionBody = 'This is a simple section.';
 
-    	$scope.$watch(function() {
-    		return $mdMedia('xs') ? 'small' : 'large';
-    	}, function(size){
-    		self.screenSize = size;
-    	})
-    }
+    // 	$scope.$watch(function() {
+    // 		return $mdMedia('xs') ? 'small' : 'large';
+    // 	}, function(size){
+    // 		self.screenSize = size;
+    // 	})
+    // }
+
+
+
+    .controller('LayoutCtrl', function ($mdMedia, $scope) {
+      var self = this;
+
+      self.title = 'Simple Layout';
+      self.sectionTitle = 'Section #1';
+      self.sectionBody = 'This is a simple section.';
+
+      $scope.$watch(function() { alert("window")
+        return $mdMedia('xs') ? 'small' : 'large';
+      }, function(size){
+        self.screenSize = size;
+      })
+    });
