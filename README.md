@@ -18,7 +18,7 @@
   
   ###index.html
   ```html
-  <meta name="viewport" content="initial-scale=1, maximun-scale=1, user-scalable=no">
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
   <link rel="stylesheet" href="bower_components/manviny.layoutmaterial/layoutmaterial.css" />
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,500,700,400italic' rel='stylesheet' type='text/css'>
@@ -32,6 +32,29 @@
     }   
   </style>
 
+  ...
+  
+  # el controlador debe llamarse LayoutCtrl, lc.screenSize cambia padding para diferentes tamaños
+  <body ng-app="miappApp" layout="column" ng-controller="LayoutCtrl as lc">
+    <!--[if lte IE 8]>
+      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+    <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <md-toolbar>
+      <h1>Mi app</h1>
+    </md-toolbar>
+
+    <md-content flex id="content" ng-class="lc.screenSize">
+      <div ng-view=""></div>
+    </md-content>
+
+    <md-toolbar>
+      <h1>Footer</h1>
+    </md-toolbar>
+
+    ...
 
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-animate/angular-animate.js"></script>
